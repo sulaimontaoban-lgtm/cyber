@@ -310,8 +310,10 @@ export default function App(){
       {page==="logs" && <div className="glass card"><h2>Project Log</h2>{logs.map((l,i)=><div key={i} className="muted">• {l.t} — {age(l.when)}</div>)}</div>}
 
       {page==="class" && <div>
-        <button className={`classToggle cyber ${zoom==="cyber"?"zoom":""}`} onClick={()=>switchCls("cyber")}>Cybersecurity</button>
-        <button className={`classToggle prog ${zoom==="prog"?"zoom":""}`} onClick={()=>switchCls("prog")}>Programmers</button>
+        <div className="clsrow">
+          <button className={`classToggle ${cls === "cyber" ? "on" : ""} ${zoom === "cyber" ? "zoom" : ""}`} onClick={() => switchCls("cyber")}>Cybersecurity</button>
+          <button className={`classToggle ${cls === "prog" ? "on" : ""} ${zoom === "prog" ? "zoom" : ""}`} onClick={() => switchCls("prog")}>Programmers</button>
+        </div>
         {examOn && classPosts.filter(p=>p.isExam).map(p=>(
           <button key={p.id} className="examstrip" onClick={()=>startExam(p)}>Exam; once clicked one hour timer start to complete your exam 👍 — {p.text.slice(0,60)}</button>))}
         {classPosts.filter(p=>!p.isExam || !examOn).map(p=>(

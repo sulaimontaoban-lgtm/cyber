@@ -108,12 +108,15 @@ button.servicerow:hover{background:rgba(30,60,40,.06)}
 input,select,textarea{width:100%;max-width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.25);color:#fff;padding:10px;margin:6px 0;min-width:0}
 button.primary{background:#8CE338;color:#0A2B13;border:0;border-radius:999px;padding:11px 18px;font-weight:800;cursor:pointer;width:100%}
 button.ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer}
-.classToggle{width:100%;border:0;cursor:pointer;border-radius:999px;padding:18px;font-size:18px;font-weight:800;margin:8px 0;transition:transform .25s ease;color:#0A2B13;background:#fff}
-.classToggle.cyber{background:linear-gradient(90deg,#fff,#d8ffb0)}
-.classToggle.prog{background:linear-gradient(90deg,#8CE338,#eaffd0)}
-.classToggle:active{transform:scale(.9)}
-@keyframes zoomOut{0%{transform:scale(1)}50%{transform:scale(.88)}100%{transform:scale(1)}}
-.zoom{animation:zoomOut .35s ease}
+/* Class switch: side-by-side pills, white by default, green when active.
+   Slow springy transitions so clicks feel smooth, not snappy. */
+.clsrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0}
+.classToggle{width:100%;min-width:0;border:0;cursor:pointer;border-radius:999px;padding:16px 8px;font-size:16px;font-weight:800;color:#0A2B13;background:linear-gradient(90deg,#ffffff,#eef7e6);box-shadow:0 8px 22px rgba(0,0,0,.2);transition:transform .5s cubic-bezier(.34,1.56,.64,1),background .5s ease,box-shadow .5s ease,color .5s ease}
+.classToggle.on{background:linear-gradient(90deg,#3da32e,#8CE338);color:#fff;box-shadow:0 8px 26px rgba(140,227,56,.5)}
+.classToggle:active{transform:scale(.93)}
+@keyframes zoomOut{0%{transform:scale(1)}40%{transform:scale(.88)}100%{transform:scale(1)}}
+.zoom{animation:zoomOut .55s cubic-bezier(.34,1.56,.64,1)}
+@media(max-width:420px){.classToggle{font-size:14px;padding:14px 6px}}
 .examstrip{display:block;width:100%;max-width:100%;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;padding:10px 16px;background:rgba(0,0,0,.35);border:1px solid #8CE338;color:#fff;cursor:pointer;margin:10px 0}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center;z-index:50}
 .sheet{width:100%;max-width:720px;max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:18px;background:rgba(20,60,28,.96);border:1px solid rgba(255,255,255,.35);min-width:0}
