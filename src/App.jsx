@@ -264,10 +264,9 @@ export default function App(){
     <div className="topbar"><div className="row" style={{flexWrap:"nowrap"}}><button className="hamb" onClick={toggleNav} aria-label="Menu">☰</button><div className="brand">CYBER <span>restart</span></div></div><div className="muted">{demoMode?"🟡 demo":up?"🟢 API":"🔴 offline"}{me?` · ${me.phone}`:""}{me?.isAdmin?" · ADMIN":""}</div></div>
     <div className="wrap">
       {page==="home" && <div>
-        <div className="glass card"><h2>Recent Activity <span className="badge">max 10 · looping</span></h2>
-          {(feed.length?feed:[]).slice(0,10).map((a,i)=><div key={i} className="muted">• {a.t} — {age(a.when)}</div>)}
-          {!feed.length && <div className="muted">No activity yet.</div>}
-        </div>
+        <h2>Recent Activity <span className="badge">max 10 · looping</span></h2>
+        {(feed.length?feed:[]).slice(0,10).map((a,i)=><div key={i} className="glass actcard"><span className="actdot" /><span className="acttext">{a.t}</span><i>{age(a.when)}</i></div>)}
+        {!feed.length && <div className="glass card muted">No activity yet.</div>}
         <div className="glass card"><h3 className="neon">What is CYBER restart?</h3><p className="muted">Sign up with phone + OTP, link socials, post projects (4/month), copy links, report done, learn in Class pages, take exams, track everything in GitHub-backed class logs.</p></div>
       </div>}
 
